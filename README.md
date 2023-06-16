@@ -1,137 +1,141 @@
-![Netlify Next.js Blog Template designed by Bejamas](https://user-images.githubusercontent.com/43764894/223762618-62742b4e-9424-44a7-8e85-9f7e4e19db54.png)
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="estilos">
+    <title>PAGINA WEB</title>
+<style>
+.body {
+    font-family:Arial, Helvetica;
+    background-color:rgb#8f7ac5;
+}
+.menu {
+    list-style:none;
+    padding:0%;
+    background:#a0e4e4;
+    width: 90%;
+    max-width: 1000px;
+    margin:auto;
+    text-align:center;
+    border-style: dotted;
+    
+}
+.menu li a {
+    text-align:center;
+    color: rgb(236, 233, 233);
+    padding: 10px;
+    display: block;
+    margin:auto;
+    
+}
+.menu li{
+    display:inline-flex;
+    text-align:center;
+    
+    
+}
+.menu li a :hover {
+        background: #4b13cf;
+      
+}
+.boton {
+    background-color: #302a3d;
+    border:0px;
+    color: rgb(245, 239, 239);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration:none;
+    display: inline-block;
+    font-size: 10px;
+    width: 80px; 
+}
+.jumbotron{
+    background:#a0e4e4;
+    color: #020007;
+    padding: 50px0;
+    text-align: justify;
+}
+.jumbotron.titulo-blog{
+    font-size:80px;
+    
+}
+/*--post--*/
+.main{
+    margin-top: 20px;
+    margin-bottom: 20%;
+}
+.post{
+    padding-bottom:20px;
+    margin-bottom:20px;
+    border: bottom 3px #020007;
+}
+.post.post-title {
+    color:#1a6868;
+    background: #a0e4e4;
+    font-family:Arial, Helvetica
+    
 
-
-[![Deploy to Netlify Button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/nextjs-blog-theme)
-
-
-A customizable blog starter using:
-
-- [Next.js](https://github.com/vercel/next.js) v12
-- [Tailwind](https://tailwindcss.com/) v3.0
-- Built-in [MDX](https://mdxjs.com/) v1 support
-- Includes modern design with dark & light themes
-
-![Preview of blog theme. Author named Jay Doe and blog's name is "Next.js Blog Theme" with one blog post](nextjs-blog-theme-preview.png)
-
-[Take a gander at the demo.](https://bejamas-nextjs-blog.netlify.app)
-
-[Click here to watch the template walkthrough!](https://www.youtube.com/watch?v=63QZHs259dY)
-
-## Table of Contents:
-
-- [Getting Started](#getting-started)
-  - [Setting Up Locally](#setting-up-locally)
-  - [Using the Wizard](#using-the-setup-wizard)
-- [Configuring the Blog](#configuring-the-blog)
-- [Adding New Posts](#adding-new-posts)
-- [Testing](#testing)
-  - [Included Default Testing](#included-default-testing)
-  - [Removing Renovate](#removing-renovate)
-  - [Removing Cypress](#removing-cypress)
-
-## Getting Started
-
----
-
-You can get started with this project in two ways: locally or using the [setup wizard](https://nextjs-wizard.netlify.app/).
-
-### Setting Up Locally
-
-If you're doing it locally, start with clicking the [use this template](https://github.com/netlify-templates/nextjs-blog-theme/generate) button on GitHub. This will create a new repository with this template's files on your GitHub account. Once that is done, clone your new repository and navigate to it in your terminal.
-
-From there, you can install the project's dependencies by running:
-
-```shell
-yarn install
-```
-
-Finally, you can run your project locally with:
-
-```shell
-yarn run dev
-```
-
-Open your browser and visit <http://localhost:3000>, your project should be running!
-
-### Using the Setup Wizard
-
-![Preview of Setup Wizard showing the initial page of a setup form](nextjs-setup-wizard.png)
-
-Through the [setup wizard](https://nextjs-wizard.netlify.app/), you can create your blog in a few clicks and deploy to Netlify.
-
-## Configuring the blog
-
-The config is based on environment variables to make it easy to integrate with any Jamstack platform, like Netlify.
-
-Here are the variables you can edit:
-| Variable | Description | Options
-| --- | --- | --- |
-| `BLOG_NAME` | the name of your blog, displayed below the avatar ||
-| `BLOG_TITLE` | the main header (`h1`) on the home page ||
-| `BLOG_FOOTER_TEXT`| the text in the footer ||
-| `BLOG_THEME` | the theme to pass to Tailwind | default |
-| `BLOG_FONT_HEADINGS` | the font-family for all HTML headings, from `h1` to `h6`| sans-serif (default), serif, monospace|
-| `BLOG_FONT_PARAGRAPHS` | the font-family for all other HTML elements | sans-serif (default), serif, monospace|
-
-All of the env variables can be configured through the [Wizard](https://nextjs-wizard.netlify.app/) or through setting the project's environment variables. You can do this in your Netlify dashaboard (Site settings/Build & deploy/Environment/Environment variables).
-
-https://user-images.githubusercontent.com/3611928/153997545-6dcdeef0-e570-49e7-93d6-ce0d393d16c9.mp4
-
-[alt: video walkthrough of editing env vars]
-
-If setting an environment variable isn't your cup of tea, the defaults can be changed in [`utils/global-data.js`](/utils/global-data.js). You can also remove the variables and hard code blog information where these variables are used in the code base.
-
-- `BLOG_THEME, BLOG_FONT_HEADINGS, & BLOG_FONT_PARAGRAPHS` are used in [`tailwind-preset.js`](tailwind-preset.js)
-- `BLOG_NAME, BLOG_TITLE, BLOG_FOOTER_TEXT` are used in [`pages/index.js`](pages/index.js) & [`pages/posts/[slug].js`](pages/posts/[slug].js) through the `globalData` object.
-
-## Adding new posts
-
-All posts are stored in `/posts` directory. To make a new post, create a new file with the [`.mdx` extension](https://mdxjs.com/).
-
-Since the posts are written in `MDX` format you can pass props and components. That means you can use [React components](https://reactjs.org/docs/components-and-props.html) inside your posts to make them more interactive. Learn more about how to do so in the [MDX docs on content](https://mdxjs.com/docs/using-mdx/#components).
-
-https://user-images.githubusercontent.com/3611928/152727802-102ec296-41c8-446d-93ed-922d11187073.mp4
-
-[alt: video walkthrough of adding a new blog post]
-
-## Testing
-
-### Included Default Testing
-
-We’ve included some tooling that helps us maintain these templates. This template currently uses:
-
-- [Renovate](https://www.mend.io/free-developer-tools/renovate/) - to regularly update our dependencies
-- [Cypress](https://www.cypress.io/) - to run tests against how the template runs in the browser
-- [Cypress Netlify Build Plugin](https://github.com/cypress-io/netlify-plugin-cypress) - to run our tests during our build process
-
-If your team is not interested in this tooling, you can remove them with ease!
-
-### Removing Renovate
-
-In order to keep our project up-to-date with dependencies we use a tool called [Renovate](https://github.com/marketplace/renovate). If you’re not interested in this tooling, delete the `renovate.json` file and commit that onto your main branch.
-
-### Removing Cypress
-
-For our testing, we use [Cypress](https://www.cypress.io/) for end-to-end testing. This makes sure that we can validate that our templates are rendering and displaying as we’d expect. By default, we have Cypress not generate deploy links if our tests don’t pass. If you’d like to keep Cypress and still generate the deploy links, go into your `netlify.toml` and delete the plugin configuration lines:
-
-```diff
-[[plugins]]
-  package = "netlify-plugin-cypress"
--  [plugins.inputs.postBuild]
--    enable = true
--
--  [plugins.inputs]
--    enable = false
-```
-
-If you’d like to remove the `netlify-plugin-cypress` build plugin entirely, you’d need to delete the entire block above instead. And then make sure sure to remove the package from the dependencies using:
-
-```bash
-npm uninstall -D netlify-plugin-cypress
-```
-
-And lastly if you’d like to remove Cypress entirely, delete the entire `cypress` folder and the `cypress.config.ts` file. Then remove the dependency using:
-
-```bash
-npm uninstall cypress
-```
+}
+</style>    
+</head>
+<body>    
+    <div id="navegacion">
+        <nav class="navbar navbar-inverse navbar- static-top" role="navegation">
+             <div class="container ">
+                    <div style="border: 1px solid rgb(247, 247, 250);">
+                    <div class="navbar - header">
+                    <div style="text-align: center; font-size: 60px; border: 1px solid #f1f2f5;">
+                    <a href="#" class="navbar-brand"> MAECOM </a> 
+    </div>  
+    <ul class="MENU">
+        <li><a href="#"></a>INICIO</li>
+        <li><a href="#"></a>QUIENES SOMOS </li>
+        <li><a href="#"></a>CONTACTO</li>
+        <li><a href="#"></a>SERVICIOS</li>   
+    <button>
+    <select name="CATEGORIAS:">
+        <option>Mantenimiento de conservación</option>
+        <option>Mantenimiento preventivo</option>
+        <option>Mantenimiento corectivo </option>
+        <option>mantenimiento programado</option>  
+    </select>         
+    </button>
+    </ul>
+</from>
+</div> 
+</nav>    
+</header>
+<section class="jumbotron fluir">
+    <div class="container">
+    <h1 titulo-blog>QUIENES SOMOS  </h1>
+    <P>MAECOM  es una empresa que busca brindar a nuestros clientes  calidad y el buen servicio, contamos con un personal altamente calificado para la realización de mantenimiento de servicio técnico y reparación de unidades ofrecemos respaldo y garantía de marcas reconocidas nacional e internacional, nuestro trabajo son muestra de la dedicación que le ponen cada uno de nuestros empleados con el único fin de sobrepasar todas las expectativas de nuestros clientes.</P>   
+</div>
+</section>
+    <article class="post clearfix">
+     <a href=""class="thumb pull-left">
+     <img src="MAECOM.png" alt="">  
+     </a>
+    <h2 >MISION</h2>
+        
+    <p>Ofrecer un servicio de alta de calidad y conformidad con el fin de satisfacer las necesidades de nuestros clientes 
+        Prestar un eficiente servicio de asistencia técnica en el ramo de la informática incrementando la creatividad con un soporte hardware y software y por medio de ello poder servir de apoyo a las empresas  a nivel de soluciones </p>    
+    
+    <h3>VISION</h3>
+    <P>Ser una de las mejores empresas de servicio a nivel de computación y de servicio técnico satisfaciendo las necesidades de los clientes por medio de la excelencia en soluciones especializadas en áreas de informática, hardware y software y poder ser reconocida en el ámbito nacional en el mercado de la computación.</P>
+    <p class="post-contenido text-justify">
+        revención  de daños en sus equipos de cómputo por falta de mantenimiento.
+        Brindamos accesoria en la elaboración,dealmacenamiento y cuidado sus copias de seguridad.
+        Asistencia profesional y técnica en el área de sistemas.
+        Mantenimiento preventivo y correctivo para sus equipos de cómputo.
+    </p>
+    <div class="contenedor-botones">
+        <p><span class="post-fecha"> 07 de marzo del 2023</span> por <span class="post autor"><a href="#">Yesica Lorena Manrique Montero</a></span></p>
+        <a href="#" class="btn btn -primary">leer mas</a>
+        <a href="#" class="btn btn -success">comentarios <span class="badge">20</span></a>
+        
+    </div>
+</article>
+</div>
+</body>
+</html>
